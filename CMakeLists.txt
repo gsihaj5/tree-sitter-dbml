@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
 
 project(tree-sitter-dbml
-        VERSION "0.1.0"
+        VERSION "1.0.0"
         DESCRIPTION "DBML Parser"
         HOMEPAGE_URL "https://github.com/gsihaj5/tree-sitter-dbml"
         LANGUAGES C)

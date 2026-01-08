@@ -1,6 +1,6 @@
 LANGUAGE_NAME := tree-sitter-dbml
 HOMEPAGE_URL := https://github.com/gsihaj5/tree-sitter-dbml
-VERSION := 0.1.0
+VERSION := 1.0.0
 
 # repository
 SRC_DIR := src

@@ -1,7 +1,7 @@
 [package]
 name = "tree-sitter-dbml"
 description = "DBML Parser"
-version = "0.1.0"
+version = "1.0.0"
 authors = ["Gerry Sihaj <gsihaj5@gmail.com>"]
 license = "MIT"
 readme = "README.md"
