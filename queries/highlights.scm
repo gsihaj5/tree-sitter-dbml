@@ -43,6 +43,7 @@
 ;; Brackets / Delimiters (DBML)
 ;; ===============================
 
-["{" "}"] @punctuation.bracket.dbml
-["(" ")"] @punctuation.bracket.dbml
-["[" "]"] @punctuation.bracket.dbml
+["{" "}"] @punctuation.bracket
+["(" ")"] @punctuation.bracket
+["[" "]"] @punctuation.bracket
+["," "."] @punctuation.delimiter
