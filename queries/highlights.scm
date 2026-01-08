@@ -4,7 +4,7 @@
 
 (table_definition) @keyword
 (ref_definition)   @keyword
-(index_block)     @keyword
+(inline_ref) @keyword
 
 ;; ===============================
 ;; Names
@@ -17,22 +17,21 @@
   name: (identifier) @property
   type: (type) @type)
 
-(ref_path
-  (identifier) @type
-  (identifier) @property)
-
 ;; ===============================
 ;; Attributes
 ;; ===============================
 
+(attribute_keyword) @attribute
 (attribute) @attribute
 
-;; ===============================
-;; Indexes
-;; ===============================
+;; Inline ref
+(inline_ref) @attribute
+(inline_ref direction: (_) @operator)
 
-(index_definition
-  (identifier) @variable)
+(inline_ref
+  target_table: (ref_path
+    (identifier) @type
+    (identifier) @property))
 
 ;; ===============================
 ;; Comments
