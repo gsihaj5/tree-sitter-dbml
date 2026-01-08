@@ -15,7 +15,7 @@
 
 (column_definition
   name: (identifier) @property
-  type: (type) @type)
+  type: (identifier) @type)
 
 ;; ===============================
 ;; Attributes
