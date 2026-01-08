@@ -1,21 +1,14 @@
-; ==============================
-; Keywords
-; ==============================
+;; =========================
+;; Top-level constructs
+;; =========================
 
-"Table"  @keyword
-"Ref"    @keyword
-"Enum"   @keyword
-"Indexes" @keyword
+(table_definition) @keyword
+(ref_definition)   @keyword
+(enum_definition)  @keyword
 
-; ==============================
-; Identifiers
-; ==============================
-
-(identifier) @variable
-
-; ==============================
-; Table / Column Names
-; ==============================
+;; =========================
+;; Names
+;; =========================
 
 (table_definition
   name: (identifier) @type)
@@ -23,27 +16,16 @@
 (column_definition
   name: (identifier) @property)
 
-(enum_definition
-  name: (identifier) @type)
+(identifier) @variable
 
-(enum_value
-  (identifier) @constant)
-
-; ==============================
-; Attributes
-; ==============================
+;; =========================
+;; Attributes
+;; =========================
 
 (attribute) @attribute
 
-; ==============================
-; References
-; ==============================
-
-(ref_path
-  (identifier) @variable)
-
-; ==============================
-; Comments
-; ==============================
+;; =========================
+;; Comments
+;; =========================
 
 (comment) @comment
