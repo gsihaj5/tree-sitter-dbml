@@ -15,7 +15,7 @@
 
 (column_definition
   name: (identifier) @property
-  type: (identifier) @type)
+  type: (type) @type)
 
 (ref_path
   (identifier) @type

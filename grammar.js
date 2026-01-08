@@ -30,7 +30,7 @@ module.exports = grammar({
         "Table",
         field("name", $.identifier),
         "{",
-        repeat(choice($.column_definition, $.index_block)),
+        repeat($.column_definition),
         "}",
       ),
 
@@ -41,31 +41,33 @@ module.exports = grammar({
       seq(
         field("name", $.identifier),
         field("type", $.identifier),
-        optional($.attribute_block),
+        optional(choice($.attribute_block, $.inline_ref)),
       ),
 
     // --------------------------------------------------
     // Attributes  [pk, unique, not null]
     // --------------------------------------------------
-    attribute_block: ($) => seq("[", commaSep1($.attribute), "]"),
-
-    attribute: (_) =>
+    attribute_block: ($) =>
       choice("pk", "unique", "not", "null", "increment", "not null"),
 
-    // --------------------------------------------------
-    // Indexes
-    // --------------------------------------------------
-    index_block: ($) => seq("Indexes", "{", repeat($.index_definition), "}"),
-
-    index_definition: ($) =>
-      seq("(", commaSep1($.identifier), ")", optional($.attribute_block)),
+    inline_ref: ($) =>
+      seq(
+        "[",
+        choice("Ref", "ref"),
+        ":",
+        optional(/\s*/),
+        field("direction", choice(">", "<", "-")),
+        optional(/\s*/),
+        field("target_table", $.ref_path),
+        "]",
+      ),
 
     // --------------------------------------------------
     // Ref
     // --------------------------------------------------
     ref_definition: ($) =>
       seq(
-        "Ref",
+        choice("Ref", "ref"),
         ":",
         field("from", $.ref_path),
         field("op", choice(">", "<", "-")),

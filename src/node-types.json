@@ -1,23 +1,8 @@
 [
   {
-    "type": "attribute",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "attribute_block",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "attribute",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
   },
   {
     "type": "column_definition",
@@ -50,6 +35,10 @@
       "types": [
         {
           "type": "attribute_block",
+          "named": true
+        },
+        {
+          "type": "inline_ref",
           "named": true
         }
       ]
@@ -97,37 +86,37 @@
     }
   },
   {
-    "type": "index_block",
+    "type": "inline_ref",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "index_definition",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "index_definition",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "attribute_block",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        }
-      ]
+    "fields": {
+      "direction": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "-",
+            "named": false
+          },
+          {
+            "type": "<",
+            "named": false
+          },
+          {
+            "type": ">",
+            "named": false
+          }
+        ]
+      },
+      "target_table": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ref_path",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -235,21 +224,9 @@
         {
           "type": "column_definition",
           "named": true
-        },
-        {
-          "type": "index_block",
-          "named": true
         }
       ]
     }
-  },
-  {
-    "type": "(",
-    "named": false
-  },
-  {
-    "type": ")",
-    "named": false
   },
   {
     "type": ",",
@@ -277,10 +254,6 @@
   },
   {
     "type": "Enum",
-    "named": false
-  },
-  {
-    "type": "Indexes",
     "named": false
   },
   {
@@ -326,6 +299,10 @@
   },
   {
     "type": "pk",
+    "named": false
+  },
+  {
+    "type": "ref",
     "named": false
   },
   {
