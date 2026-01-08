@@ -172,6 +172,10 @@
         {
           "type": "STRING",
           "value": "not null"
+        },
+        {
+          "type": "STRING",
+          "value": "null"
         }
       ]
     },

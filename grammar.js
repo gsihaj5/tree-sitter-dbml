@@ -51,7 +51,8 @@ module.exports = grammar({
 
     attribute: ($) => choice($.attribute_keyword, $.inline_ref),
 
-    attribute_keyword: ($) => choice("pk", "unique", "increment", "not null"),
+    attribute_keyword: ($) =>
+      choice("pk", "unique", "increment", "not null", "null"),
 
     inline_ref: ($) =>
       seq(

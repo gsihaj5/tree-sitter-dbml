@@ -320,6 +320,10 @@
     "named": false
   },
   {
+    "type": "null",
+    "named": false
+  },
+  {
     "type": "pk",
     "named": false
   },
