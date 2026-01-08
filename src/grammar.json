@@ -93,17 +93,8 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "attribute_block"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "inline_ref"
-                }
-              ]
+              "type": "SYMBOL",
+              "name": "attribute_block"
             },
             {
               "type": "BLANK"
@@ -113,6 +104,57 @@
       ]
     },
     "attribute_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "["
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "attribute"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "attribute"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "]"
+        }
+      ]
+    },
+    "attribute": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "attribute_keyword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "inline_ref"
+        }
+      ]
+    },
+    "attribute_keyword": {
       "type": "CHOICE",
       "members": [
         {
@@ -122,14 +164,6 @@
         {
           "type": "STRING",
           "value": "unique"
-        },
-        {
-          "type": "STRING",
-          "value": "not"
-        },
-        {
-          "type": "STRING",
-          "value": "null"
         },
         {
           "type": "STRING",
@@ -144,10 +178,6 @@
     "inline_ref": {
       "type": "SEQ",
       "members": [
-        {
-          "type": "STRING",
-          "value": "["
-        },
         {
           "type": "CHOICE",
           "members": [
@@ -217,10 +247,6 @@
             "type": "SYMBOL",
             "name": "ref_path"
           }
-        },
-        {
-          "type": "STRING",
-          "value": "]"
         }
       ]
     },

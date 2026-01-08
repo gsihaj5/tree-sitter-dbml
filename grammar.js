@@ -41,25 +41,26 @@ module.exports = grammar({
       seq(
         field("name", $.identifier),
         field("type", $.identifier),
-        optional(choice($.attribute_block, $.inline_ref)),
+        optional($.attribute_block),
       ),
 
     // --------------------------------------------------
     // Attributes  [pk, unique, not null]
     // --------------------------------------------------
-    attribute_block: ($) =>
-      choice("pk", "unique", "not", "null", "increment", "not null"),
+    attribute_block: ($) => seq("[", commaSep1($.attribute), "]"),
+
+    attribute: ($) => choice($.attribute_keyword, $.inline_ref),
+
+    attribute_keyword: ($) => choice("pk", "unique", "increment", "not null"),
 
     inline_ref: ($) =>
       seq(
-        "[",
         choice("Ref", "ref"),
         ":",
         optional(/\s*/),
         field("direction", choice(">", "<", "-")),
         optional(/\s*/),
         field("target_table", $.ref_path),
-        "]",
       ),
 
     // --------------------------------------------------
