@@ -16,10 +16,11 @@
 (column_definition
   name: (identifier) @property)
 
+(column_definition
+  type: (identifier) @type)
+
 (ref_path
   (identifier) @variable)
-
-(identifier) @variable
 
 ;; ===============================
 ;; Attributes
