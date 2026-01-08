@@ -14,13 +14,12 @@
   name: (identifier) @type)
 
 (column_definition
-  name: (identifier) @property)
-
-(column_definition
+  name: (identifier) @property
   type: (identifier) @type)
 
 (ref_path
-  (identifier) @variable)
+  (identifier) @type
+  (identifier) @property)
 
 ;; ===============================
 ;; Attributes
@@ -40,3 +39,11 @@
 ;; ===============================
 
 (comment) @comment
+
+;; ===============================
+;; Brackets / Delimiters (DBML)
+;; ===============================
+
+["{" "}"] @punctuation.bracket.dbml
+["(" ")"] @punctuation.bracket.dbml
+["[" "]"] @punctuation.bracket.dbml
