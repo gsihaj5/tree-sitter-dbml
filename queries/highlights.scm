@@ -25,7 +25,7 @@
 (attribute) @attribute
 
 ;; Inline ref
-(inline_ref) @attribute
+(inline_ref) @keyword
 (inline_ref direction: (_) @operator)
 
 (inline_ref
